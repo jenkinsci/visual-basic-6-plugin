@@ -11,9 +11,11 @@ import hudson.model.TaskListener;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.util.ArgumentListBuilder;
+import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.File;
@@ -65,6 +67,10 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
             throw new AbortException("nice try, but come back with a Windows machine");
         }
 
+        if(Strings.isNullOrEmpty(getProjectFile())){
+            throw new AbortException("nice try, but we need something to compile");
+        }
+        
         ArgumentListBuilder args = new ArgumentListBuilder();
         args.add(getDescriptor().getBuilderPath());
 
@@ -85,6 +91,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         //perform build
         int r = launcher.launch().cmds(args).pwd(workspace).join();
         if(r != 0) {
+            listener.getLogger().println(String.format("return code is %d", r ));
             build.setResult(Result.FAILURE);
         }
         listener.getLogger().println(tempPath.readToString());
@@ -129,6 +136,14 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
             load();
         }
 
+
+        public FormValidation doCheckProjectFile(@QueryParameter String value) {
+            if(Strings.isNullOrEmpty(value)){
+                return FormValidation.error("value is empty");
+            } else{
+                return FormValidation.ok();
+            }
+        }
 
         public boolean isApplicable(Class<? extends AbstractProject> aClass) {
             // Indicates that this builder can be used with all kinds of project types 
