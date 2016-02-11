@@ -40,18 +40,14 @@ import static java.io.File.createTempFile;
  */
 public class VB6Builder extends Builder implements SimpleBuildStep {
 
-    public enum MAKE_TYPE {EXE, DLL}
-
     private final String projectFile;
     private final String outDir;
-    private final MAKE_TYPE buildType;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public VB6Builder(String projectFile, String outDir, String buildType) {
+    public VB6Builder(String projectFile, String outDir) {
         this.projectFile = projectFile;
         this.outDir = outDir;
-        this.buildType = MAKE_TYPE.valueOf(buildType);
     }
 
     public String getProjectFile() {
@@ -60,10 +56,6 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
     public String getOutDir() {
         return outDir;
-    }
-
-    public MAKE_TYPE getBuildType() {
-        return buildType;
     }
 
     @Override
@@ -76,12 +68,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         ArgumentListBuilder args = new ArgumentListBuilder();
         args.add(getDescriptor().getBuilderPath());
 
-        switch (getBuildType()){
-            case EXE: args.add("/make"); break;
-            case DLL: args.add("/makedll"); break;
-            default:
-                throw new AbortException("build type not valid");
-        }
+        args.add("/make");
 
         if(!Strings.isNullOrEmpty(getOutDir())){
             args.add("/outdir").add(getOutDir());
@@ -94,7 +81,6 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
         args.prepend("cmd.exe", "/C", "\"");
         args.add("\"", "&&", "exit", "%%ERRORLEVEL%%");
-
 
         //perform build
         int r = launcher.launch().cmds(args).pwd(workspace).join();

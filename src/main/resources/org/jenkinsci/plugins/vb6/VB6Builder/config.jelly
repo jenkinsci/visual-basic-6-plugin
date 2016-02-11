@@ -4,13 +4,9 @@
   <f:entry title="Project file (.vbp)" field="projectFile">
     <f:textbox />
   </f:entry>
-  <f:entry title="Output directory" field="outDir">
-    <f:textbox />
-  </f:entry>
-  <f:entry title="Build type" field="buildType">
-    <select name="buildType">
-      <option value="EXE">EXE</option>
-      <option value="DLL">DLL</option>
-    </select>
-  </f:entry>
+  <f:advanced>
+    <f:entry title="Output directory" field="outDir">
+      <f:textbox />
+    </f:entry>
+  </f:advanced>
 </j:jelly>
