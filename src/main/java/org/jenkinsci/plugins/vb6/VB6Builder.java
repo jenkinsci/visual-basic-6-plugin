@@ -5,6 +5,7 @@ import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.AbstractProject;
+import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
@@ -17,6 +18,7 @@ import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 import static java.io.File.createTempFile;
 
@@ -66,16 +68,13 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-        // This is where you 'build' the project.
 
-        // This also shows how you can consult the global configuration of the builder
-        listener.getLogger().println("build tool path, "+getDescriptor().getBuilderPath());
-        listener.getLogger().println("projectFile: "+getProjectFile());
-        listener.getLogger().println("outDir: "+getOutDir());
-        listener.getLogger().println("buildType: "+ getBuildType());
+        if (launcher.isUnix()) {
+            throw new AbortException("nice try, but come back with a Windows machine");
+        }
 
         ArgumentListBuilder args = new ArgumentListBuilder();
-        args.addQuoted(getDescriptor().getBuilderPath());
+        args.add(getDescriptor().getBuilderPath());
 
         switch (getBuildType()){
             case EXE: args.add("/make"); break;
@@ -85,31 +84,26 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         }
 
         if(!Strings.isNullOrEmpty(getOutDir())){
-            args.add("/outdir").addQuoted(getOutDir());
+            args.add("/outdir").add(getOutDir());
         }
 
-        File temp = null;
-        try {
-            temp = createTempFile("vb6build", ".log");
-        } catch (IOException e) {
-            throw new AbortException("build type not valid");
+        FilePath tempPath = workspace.createTempFile("vb6build", "log");
+        args.add("/out").add(tempPath.getRemote());
+
+        args.add(getProjectFile());
+
+        args.prepend("cmd.exe", "/C", "\"");
+        args.add("\"", "&&", "exit", "%%ERRORLEVEL%%");
+
+
+        //perform build
+        int r = launcher.launch().cmds(args).pwd(workspace).join();
+        if(r != 0) {
+            build.setResult(Result.FAILURE);
         }
+        listener.getLogger().println(tempPath.readToString());
 
-        args.add("/out").addQuoted(temp.getAbsolutePath());
-
-        args.addQuoted(getProjectFile());
-
-        if (!launcher.isUnix()) {
-            args.prepend("cmd.exe", "/C", "\"");
-            args.add("\"", "&&", "exit", "%%ERRORLEVEL%%");
-        }
-
-        listener.getLogger().println(String.format("Executing the command %s", args.toStringWithQuote()));
-
-        //TODO: perform build
-
-        //delete temporary file with build result
-        temp.delete();
+        tempPath.delete();
     }
 
     // Overridden for better buildType safety.
