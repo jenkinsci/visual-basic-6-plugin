@@ -8,5 +8,8 @@
     <f:entry title="Output directory" field="outDir">
       <f:textbox />
     </f:entry>
+    <f:entry title="Compilation constants" field="compileConstants">
+      <f:textbox />
+    </f:entry>
   </f:advanced>
 </j:jelly>

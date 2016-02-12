@@ -44,12 +44,14 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
     private final String projectFile;
     private final String outDir;
+    private final String compileConstants;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public VB6Builder(String projectFile, String outDir) {
+    public VB6Builder(String projectFile, String outDir, String compileConstants) {
         this.projectFile = projectFile;
         this.outDir = outDir;
+        this.compileConstants = compileConstants;
     }
 
     public String getProjectFile() {
@@ -58,6 +60,10 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
     public String getOutDir() {
         return outDir;
+    }
+
+    public String getCompileConstants() {
+        return compileConstants;
     }
 
     @Override
@@ -78,6 +84,10 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
         if(!Strings.isNullOrEmpty(getOutDir())){
             args.add("/outdir").add(getOutDir());
+        }
+
+        if(!Strings.isNullOrEmpty(getCompileConstants())){
+            args.add("/d").add(getCompileConstants());
         }
 
         FilePath tempPath = workspace.createTempFile("vb6build", "log");
