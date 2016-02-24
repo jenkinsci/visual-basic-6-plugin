@@ -90,7 +90,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
             args.add("/d").add(getCompileConstants());
         }
 
-        FilePath tempPath = workspace.createTempFile("vb6build", "log");
+        FilePath tempPath = workspace.createTempFile("vb6build", ".log");
         args.add("/out").add(tempPath.getRemote());
 
         args.add(getProjectFile());
