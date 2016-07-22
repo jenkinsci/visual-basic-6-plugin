@@ -100,11 +100,13 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
 
         //perform build
         int r = launcher.launch().cmds(args).pwd(workspace).join();
+
+        listener.getLogger().println(tempPath.readToString());
+
         if(r != 0) {
             listener.getLogger().println(String.format("return code is %d", r ));
-            build.setResult(Result.FAILURE);
+            throw new AbortException("build not ok. return code is " + r);
         }
-        listener.getLogger().println(tempPath.readToString());
 
         tempPath.delete();
     }
