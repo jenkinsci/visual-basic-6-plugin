@@ -1,5 +1,5 @@
-# vb6-plugin
-Jenkins plugin for VB6 builder
+# visual basic 6 plugin
+Jenkins plugin for Visual Basic 6 builder
 
 Automating a build of a Visual Basic 6 has some challenges. This plugin aims to workaround some of these issues. 
 
