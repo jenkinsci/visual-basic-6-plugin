@@ -15,6 +15,7 @@ import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
@@ -43,15 +44,13 @@ import static java.io.File.createTempFile;
 public class VB6Builder extends Builder implements SimpleBuildStep {
 
     private final String projectFile;
-    private final String outDir;
-    private final String compileConstants;
+    private String outDir;
+    private String compileConstants;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public VB6Builder(String projectFile, String outDir, String compileConstants) {
+    public VB6Builder(String projectFile) {
         this.projectFile = projectFile;
-        this.outDir = outDir;
-        this.compileConstants = compileConstants;
     }
 
     public String getProjectFile() {
@@ -62,8 +61,19 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         return outDir;
     }
 
+    @DataBoundSetter
+    public void setOutDir(String outDir) {
+        this.outDir = outDir;
+    }
+
     public String getCompileConstants() {
         return compileConstants;
+
+    }
+
+    @DataBoundSetter
+    public void setCompileConstants(String compileConstants) {
+        this.compileConstants = compileConstants;
     }
 
     @Override
