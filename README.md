@@ -1,7 +1,7 @@
 # Visual Basic 6 Plugin
 
-![Jenkins Plugins](https://img.shields.io/jenkins/plugin/v/visual-basic-6)
-![Jenkins Plugin installs](https://img.shields.io/jenkins/plugin/i/visual-basic-6)
+[![Jenkins Plugins](https://img.shields.io/jenkins/plugin/v/visual-basic-6)](https://github.com/jenkinsci/visual-basic-6-plugin/releases)
+[![Jenkins Plugin installs](https://img.shields.io/jenkins/plugin/i/visual-basic-6)](https://plugins.jenkins.io/visual-basic-6)
 
 
 Jenkins plugin for Visual Basic 6 builder
