@@ -2,7 +2,9 @@
 
 [![Jenkins Plugins](https://img.shields.io/jenkins/plugin/v/visual-basic-6)](https://github.com/jenkinsci/visual-basic-6-plugin/releases)
 [![Jenkins Plugin installs](https://img.shields.io/jenkins/plugin/i/visual-basic-6)](https://plugins.jenkins.io/visual-basic-6)
-
+[![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins/visual-basic-6-plugin/master)](https://ci.jenkins.io/blue/organizations/jenkins/Plugins%2Fvisual-basic-6-plugin/branches)
+[![MIT License](https://img.shields.io/github/license/jenkinsci/visual-basic-6-plugin.svg)](LICENSE)
+[![javadoc](https://img.shields.io/badge/javadoc-available-brightgreen.svg)](https://javadoc.jenkins.io/plugin/visual-basic-6/)
 
 Jenkins plugin for Visual Basic 6 builder
 
