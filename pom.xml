@@ -15,7 +15,7 @@
 
   <name>Visual Basic 6 Plugin</name>
   <description>Visual Basic 6</description>
-  <url>https://wiki.jenkins-ci.org/display/JENKINS/Visual+Basic+6+Plugin</url>
+  <url>https://github.com/jenkinsci/visual-basic-6-plugin</url>
   <licenses>
     <license>
       <name>MIT License</name>
