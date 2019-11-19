@@ -14,3 +14,14 @@ In a job configuration add a VB6 build step and define the path to the project f
 
 ## See also
 http://zbz5.net/automating-build-visual-basic-6-project
+
+## FAQ
+
+Q: Does the plugin change the major, minor and the revision numbers in
+vbp project before compile time?
+
+A: Not at this time. Pull requests are welcome. 
+
+## TODO Ideas
+
+-   Add line numbers to project before compilation
