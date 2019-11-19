@@ -1,4 +1,9 @@
-# visual basic 6 plugin
+# Visual Basic 6 Plugin
+
+![Jenkins Plugins](https://img.shields.io/jenkins/plugin/v/visual-basic-6)
+![Jenkins Plugin installs](https://img.shields.io/jenkins/plugin/i/visual-basic-6)
+
+
 Jenkins plugin for Visual Basic 6 builder
 
 Automating a build of a Visual Basic 6 has some challenges. This plugin aims to workaround some of these issues. 
