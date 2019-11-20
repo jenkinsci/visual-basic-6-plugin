@@ -42,6 +42,27 @@
     <java.level>8</java.level>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins.workflow</groupId>
+      <artifactId>workflow-job</artifactId>
+      <version>2.36</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins.workflow</groupId>
+      <artifactId>workflow-cps</artifactId>
+      <version>2.76</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkinsci.plugins</groupId>
+      <artifactId>pipeline-model-definition</artifactId>
+      <version>1.4.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>

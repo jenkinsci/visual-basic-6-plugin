@@ -14,6 +14,7 @@ import hudson.util.ArgumentListBuilder;
 import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
+import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
@@ -141,6 +142,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
      * See <tt>src/main/resources/hudson/plugins/vb6/VB6Builder/*.jelly</tt>
      * for the actual HTML fragment for the configuration screen.
      */
+    @Symbol("vb6")
     @Extension // This indicates to Jenkins that this is an implementation of an extension point.
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
 
