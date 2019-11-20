@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>2.12</version>
+    <version>3.53</version>
     <relativePath />
   </parent>
   <groupId>org.jenkins-ci.plugins</groupId>
@@ -37,6 +37,10 @@
     <url>http://github.com/jenkinsci/${project.artifactId}-plugin</url>
     <tag>HEAD</tag>
   </scm>
+
+  <properties>
+    <java.level>8</java.level>
+  </properties>
 
   <repositories>
     <repository>
