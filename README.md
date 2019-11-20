@@ -6,7 +6,7 @@
 [![MIT License](https://img.shields.io/github/license/jenkinsci/visual-basic-6-plugin.svg)](LICENSE)
 [![javadoc](https://img.shields.io/badge/javadoc-available-brightgreen.svg)](https://javadoc.jenkins.io/plugin/visual-basic-6/)
 
-Jenkins plugin for Visual Basic 6 builder
+[Jenkins](https://jenkins.io/) plugin for [Visual Basic 6](https://msdn.microsoft.com/en-us/library/hh127509.aspx) builder
 
 Automating a build of a Visual Basic 6 has some challenges. This plugin aims to workaround some of these issues. 
 
@@ -18,6 +18,21 @@ In Jenkins Configure System, section VB6 Builder, set the VB6.exe path.
 In a job configuration add a VB6 build step and define the path to the project file.  
 
 ![ScreenShot](job_config.png?raw=true)
+
+In a [declarative pipeline](https://jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline) use:
+```
+pipeline {
+  agent any
+
+  stages {
+    stage('build') {
+      steps {
+        vb6 'Project1.vbp'
+      }
+    }
+  }
+}
+```
 
 ## See also
 http://zbz5.net/automating-build-visual-basic-6-project
