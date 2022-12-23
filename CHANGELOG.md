@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+ - [Use HTTPS instead of git](https://github.com/jenkinsci/visual-basic-6-plugin/pull/5)
+
 ## [v1.4] - 2019-11-26
 
 ### Changed
