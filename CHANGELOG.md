@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - [Use HTTPS instead of git](https://github.com/jenkinsci/visual-basic-6-plugin/pull/5)
  - [Updates parent pom to 4.51](https://github.com/jenkinsci/visual-basic-6-plugin/pull/4)
+ - [Require Jenkins 2.361.4 and Java 11](https://github.com/jenkinsci/visual-basic-6-plugin/pull/6)
 
 ## [v1.4] - 2019-11-26
 
