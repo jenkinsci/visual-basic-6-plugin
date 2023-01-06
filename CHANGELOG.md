@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0] - 2023-01-06
+
 ### Changed
 
  - [Use HTTPS instead of git](https://github.com/jenkinsci/visual-basic-6-plugin/pull/5)
@@ -26,7 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.0] - 2016-02-24
 
 
-[unreleased]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.4...HEAD
+[unreleased]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v2.0...HEAD
+[v2.0]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.4...v2.0
 [v1.4]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.3...v1.4
 [v1.3]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.2...v1.3
 [v1.2]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.1...v1.2
