@@ -139,7 +139,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
      * The class is marked as public so that it can be accessed from views.
      *
      * <p>
-     * See <tt>src/main/resources/hudson/plugins/vb6/VB6Builder/*.jelly</tt>
+     * See <code>src/main/resources/hudson/plugins/vb6/VB6Builder/*.jelly</code>
      * for the actual HTML fragment for the configuration screen.
      */
     @Symbol("vb6")
