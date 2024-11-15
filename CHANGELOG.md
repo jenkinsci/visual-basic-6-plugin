@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+ - [Upgrade Jenkins core from 2.361.4 to 2.452.4](https://github.com/jenkinsci/visual-basic-6-plugin/pull/8)
+ 
 ## [v2.0] - 2023-01-06
 
 ### Changed
