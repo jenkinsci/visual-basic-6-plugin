@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+ - [Stop testing Java 11](https://github.com/jenkinsci/visual-basic-6-plugin/pull/10)
+
 ## [v2.1] - 2024-11-15
 
 ### Changed
