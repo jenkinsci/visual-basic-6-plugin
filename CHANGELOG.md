@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.3] - 2025-02-17
+
  - [Stop testing Java 11](https://github.com/jenkinsci/visual-basic-6-plugin/pull/10)
  - [Use jenkins.baseline to reduce bom update mistakes](https://github.com/jenkinsci/visual-basic-6-plugin/pull/11)
  - [feat: update plugin to 5.7 & Jenkins baseline to 2.479.1](https://github.com/jenkinsci/visual-basic-6-plugin/pull/12)
@@ -39,7 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.0] - 2016-02-24
 
 
-[unreleased]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v2.1...HEAD
+[unreleased]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/visual-basic-6-2.3...HEAD
+[v2.3]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v2.1...visual-basic-6-2.3
 [v2.1]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v2.0...v2.1
 [v2.0]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.4...v2.0
 [v1.4]: https://github.com/jenkinsci/visual-basic-6-plugin/compare/v1.3...v1.4
