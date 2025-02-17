@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - [Stop testing Java 11](https://github.com/jenkinsci/visual-basic-6-plugin/pull/10)
  - [Use jenkins.baseline to reduce bom update mistakes](https://github.com/jenkinsci/visual-basic-6-plugin/pull/11)
  - [feat: update plugin to 5.7 & Jenkins baseline to 2.479.1](https://github.com/jenkinsci/visual-basic-6-plugin/pull/12)
+ - [Fix javadoc for DescriptorImpl.newInstance method](https://github.com/jenkinsci/visual-basic-6-plugin/pull/13)
 
 ## [v2.1] - 2024-11-15
 
