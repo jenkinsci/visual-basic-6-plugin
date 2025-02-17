@@ -18,7 +18,7 @@ import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ import static java.io.File.createTempFile;
  *
  * <p>
  * When the user configures the project and enables this builder,
- * {@link DescriptorImpl#newInstance(StaplerRequest)} is invoked
+ * {@link DescriptorImpl#newInstance(StaplerRequest2)} is invoked
  * and a new {@link VB6Builder} is created. The created
  * instance is persisted to the project configuration XML by using
  * XStream, so this allows you to use instance fields
@@ -186,7 +186,7 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+        public boolean configure(StaplerRequest2 req, JSONObject formData) throws FormException {
             builderPath = formData.getString("builderPath");
             save();
             return super.configure(req,formData);
