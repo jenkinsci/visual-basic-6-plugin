@@ -31,7 +31,7 @@ import static java.io.File.createTempFile;
  *
  * <p>
  * When the user configures the project and enables this builder,
- * {@link DescriptorImpl#newInstance(StaplerRequest2)} is invoked
+ * {@link DescriptorImpl#newInstance(StaplerRequest2,JSONObject)} is invoked
  * and a new {@link VB6Builder} is created. The created
  * instance is persisted to the project configuration XML by using
  * XStream, so this allows you to use instance fields
