@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
  - [Use most recent parent pom 6.2111.v8b_6a_1d599df3](https://github.com/jenkinsci/visual-basic-6-plugin/pull/14)
+ - [Migrate tests to JUnit5](https://github.com/jenkinsci/visual-basic-6-plugin/pull/16)
 
 ## [v2.3] - 2025-02-17
 
