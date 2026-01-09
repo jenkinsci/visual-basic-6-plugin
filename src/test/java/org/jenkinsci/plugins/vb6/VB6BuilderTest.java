@@ -10,23 +10,21 @@ import hudson.model.queue.QueueTaskFuture;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
-import org.junit.Assume;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.jvnet.hudson.test.recipes.LocalData;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@WithJenkins
 public class VB6BuilderTest {
 
-    @Rule
-    public JenkinsRule j = new JenkinsRule();
-
     @Test
-    public void testUnix() throws Exception {
-        Assume.assumeFalse(Functions.isWindows());
+    void testUnix(JenkinsRule j) throws Exception {
+        Assumptions.assumeFalse(Functions.isWindows());
 
         FreeStyleProject project1 = j.createFreeStyleProject("project1");
         project1.getBuildersList().add(new VB6Builder("test.vbp"));
@@ -38,8 +36,8 @@ public class VB6BuilderTest {
     }
 
     @Test
-    public void testWindowsWithoutBuildToolPathDefined() throws Exception {
-        Assume.assumeTrue(Functions.isWindows());
+    void testWindowsWithoutBuildToolPathDefined(JenkinsRule j) throws Exception {
+        Assumptions.assumeTrue(Functions.isWindows());
 
         FreeStyleProject project1 = j.createFreeStyleProject("project1");
         project1.getBuildersList().add(new VB6Builder("Project1.vbp"));
@@ -52,9 +50,9 @@ public class VB6BuilderTest {
 
     @LocalData
     @Test
-    public void testWindowsSuccess() throws Exception {
-        Assume.assumeTrue(Functions.isWindows());
-        Assume.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
+    void testWindowsSuccess(JenkinsRule j) throws Exception {
+        Assumptions.assumeTrue(Functions.isWindows());
+        Assumptions.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
 
         VB6Builder.DescriptorImpl vb6 = (VB6Builder.DescriptorImpl) j.jenkins.getBuilder("VB6Builder");
         vb6.setBuilderPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE");
@@ -71,9 +69,9 @@ public class VB6BuilderTest {
 
     @LocalData
     @Test
-    public void testWindowsFails() throws Exception {
-        Assume.assumeTrue(Functions.isWindows());
-        Assume.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
+    void testWindowsFails(JenkinsRule j) throws Exception {
+        Assumptions.assumeTrue(Functions.isWindows());
+        Assumptions.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
 
         VB6Builder.DescriptorImpl vb6 = (VB6Builder.DescriptorImpl) j.jenkins.getBuilder("VB6Builder");
         vb6.setBuilderPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE");
@@ -93,9 +91,9 @@ public class VB6BuilderTest {
 
     @LocalData
     @Test
-    public void testWindowsSuccessPipeline() throws Exception {
-        Assume.assumeTrue(Functions.isWindows());
-        Assume.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
+    void testWindowsSuccessPipeline(JenkinsRule j) throws Exception {
+        Assumptions.assumeTrue(Functions.isWindows());
+        Assumptions.assumeTrue(Files.exists(Paths.get("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE")));
 
         VB6Builder.DescriptorImpl vb6 = (VB6Builder.DescriptorImpl) j.jenkins.getBuilder("VB6Builder");
         vb6.setBuilderPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE");
