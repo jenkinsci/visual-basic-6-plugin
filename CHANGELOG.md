@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - [Migrate tests to JUnit5](https://github.com/jenkinsci/visual-basic-6-plugin/pull/16)
  - [Test with Java 25 and Java 21](https://github.com/jenkinsci/visual-basic-6-plugin/pull/15)
  - [Automate dependency updates](https://github.com/jenkinsci/visual-basic-6-plugin/pull/17)
+ - [Ban JUnit 4 imports](https://github.com/jenkinsci/visual-basic-6-plugin/pull/18)
 
 ## [v2.3] - 2025-02-17
 
