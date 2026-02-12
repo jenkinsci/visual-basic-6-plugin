@@ -5,13 +5,14 @@ import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.AbstractProject;
-import hudson.model.Result;
+import hudson.model.Item;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.util.ArgumentListBuilder;
 import hudson.util.FormValidation;
+import jenkins.model.Jenkins;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.jenkinsci.Symbol;
@@ -19,12 +20,9 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.verb.POST;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-
-import static java.io.File.createTempFile;
 
 /**
  * Sample {@link Builder}.
@@ -165,7 +163,10 @@ public class VB6Builder extends Builder implements SimpleBuildStep {
         }
 
 
+        @POST
         public FormValidation doCheckProjectFile(@QueryParameter String value) {
+            Jenkins.get().checkPermission(Item.CONFIGURE);
+
             if(Strings.isNullOrEmpty(value)){
                 return FormValidation.error("value is empty");
             } else{

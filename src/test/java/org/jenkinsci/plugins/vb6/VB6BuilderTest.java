@@ -7,6 +7,8 @@ import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
 import hudson.model.Result;
 import hudson.model.queue.QueueTaskFuture;
+import org.htmlunit.html.HtmlForm;
+import org.htmlunit.html.HtmlPage;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
@@ -15,12 +17,30 @@ import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.jvnet.hudson.test.recipes.LocalData;
+import org.xml.sax.SAXException;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @WithJenkins
 public class VB6BuilderTest {
+
+    @Test
+    void configRoundTrip(JenkinsRule j) throws Exception {
+        FreeStyleProject p = j.createFreeStyleProject();
+        VB6Builder orig = new VB6Builder("projectFile1.vbp");
+        p.getBuildersList().add(orig);
+
+        try (JenkinsRule.WebClient webClient = j.createWebClient()) {
+            HtmlPage page = webClient.getPage(p, "configure");
+            HtmlForm form = page.getFormByName("config");
+            j.submit(form);
+        }
+
+        j.assertEqualBeans(orig, p.getBuildersList().get(VB6Builder.class), "projectFile");
+
+    }
 
     @Test
     void testUnix(JenkinsRule j) throws Exception {
