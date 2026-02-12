@@ -1,6 +1,7 @@
 # Visual Basic 6 Plugin
 
 [![Jenkins Plugins](https://img.shields.io/jenkins/plugin/v/visual-basic-6)](https://github.com/jenkinsci/visual-basic-6-plugin/releases)
+[![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo.jenkins-ci.org%2Freleases%2Forg%2Fjenkins-ci%2Fplugins%2Fvisual-basic-6%2Fmaven-metadata.xml)](https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/visual-basic-6/)
 [![Jenkins Plugin installs](https://img.shields.io/jenkins/plugin/i/visual-basic-6)](https://plugins.jenkins.io/visual-basic-6)
 [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins/visual-basic-6-plugin/master)](https://ci.jenkins.io/blue/organizations/jenkins/Plugins%2Fvisual-basic-6-plugin/branches)
 [![MIT License](https://img.shields.io/github/license/jenkinsci/visual-basic-6-plugin.svg)](LICENSE)
