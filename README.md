@@ -6,7 +6,7 @@
 [![MIT License](https://img.shields.io/github/license/jenkinsci/visual-basic-6-plugin.svg)](LICENSE)
 [![javadoc](https://img.shields.io/badge/javadoc-available-brightgreen.svg)](https://javadoc.jenkins.io/plugin/visual-basic-6/)
 
-[Jenkins](https://jenkins.io/) plugin for [Visual Basic 6](https://msdn.microsoft.com/en-us/library/hh127509.aspx) builder
+[Jenkins](https://jenkins.io/) plugin for [Visual Basic 6](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-basic-6/visual-basic-6.0-documentation) builder
 
 Automating a build of a Visual Basic 6 has some challenges. This plugin aims to workaround some of these issues. 
 
