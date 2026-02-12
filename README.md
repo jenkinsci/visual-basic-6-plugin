@@ -35,7 +35,7 @@ pipeline {
 ```
 
 ## See also
-http://zbz5.net/automating-build-visual-basic-6-project
+[http://zbz5.net/automating-build-visual-basic-6-project (archive)](https://web.archive.org/web/20240717191435/https://zbz5.net/automating-build-visual-basic-6-project)
 
 ## FAQ
 
